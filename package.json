@@ -1,0 +1,59 @@
+{
+  "name": "@progress/kendo-theme-tasks",
+  "description": "Build utility for @progress/kendo-themes",
+  "version": "0.0.0-development",
+  "author": "Progress",
+  "license": "Apache-2.0",
+  "keywords": [
+    "Kendo UI",
+    "Theme"
+  ],
+  "main": "index.js",
+  "files": [
+    "src/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/telerik/kendo-theme-tasks.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.5"
+  },
+  "dependencies": {
+    "@joneff/baka": "^0.5.1",
+    "ansi-colors": "^4.1.1",
+    "glob": "^7.1.6",
+    "gulplog": "^1.0.0",
+    "lodash.merge": "^4.6.2",
+    "postcss": "^8.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/core": "^11.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "eslint": "^7.17.0",
+    "husky": "^4.3.8",
+    "mocha": "^8.2.1",
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.5",
+    "semantic-release": "^17.3.6"
+  },
+  "scripts": {
+    "eslint": "eslint \"**/*.js\"",
+    "test": "mocha",
+    "mocha-dots": "mocha --reporter dot",
+    "semantic-release": "semantic-release"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run eslint",
+      "pre-push": "npm run eslint && npm run mocha-dots",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

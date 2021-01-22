@@ -1,0 +1,50 @@
+name: Release nightly channel
+
+defaults:
+  run:
+    shell: bash
+
+on:
+  workflow_run:
+    workflows: ["CI | Nightly"]
+    branches: [develop]
+    types:
+      - completed
+
+jobs:
+
+  release-nightly:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout branch
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+
+      - name: Setup git
+        run: |
+          git config user.name "kendo-bot"
+          git config user.email "kendouiteam@progress.com"
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Setup node cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install
+        run: npm ci
+
+      - name: Publish
+        run: npx semantic-release
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

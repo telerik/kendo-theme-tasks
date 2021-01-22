@@ -1,0 +1,15 @@
+{
+    "bail": false,
+    "checkLeaks": true,
+    "color": true,
+    "diff": true,
+    "exit": true,
+    "global": [],
+    "recursive": true,
+    "reporter": "spec",
+    "slow": 75,
+    "spec": "test/**/*.js",
+    "timeout": 2000,
+    "watch": false,
+    "ui": "bdd"
+}
