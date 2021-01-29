@@ -12,7 +12,6 @@ on: [workflow_dispatch]
 jobs:
 
   merge:
-    name: Merge
 
     runs-on: ubuntu-latest
 
