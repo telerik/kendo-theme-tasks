@@ -25,12 +25,6 @@ jobs:
           git config user.name "kendo-bot"
           git config user.email "kendouiteam@progress.com"
 
-      - name: Merge develop to master
-        run: |
-          git fetch --quiet
-          git reset --hard origin/master
-          git merge --ff-only --quiet origin/develop
-
       - name: Setup node
         uses: actions/setup-node@v1
         with:
@@ -48,4 +42,5 @@ jobs:
       - name: Publish
         run: npx semantic-release
         env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
