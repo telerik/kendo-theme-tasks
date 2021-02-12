@@ -4,7 +4,7 @@ function getArg(key) {
 
     return (index < 0) ? null : (!next || next[0] === '-') ? true : next; // eslint-disable-line no-nested-ternary
 }
-const isNightly = getArg( 'nightly' );
+const isNightly = getArg( '--nightly' );
 
 
 const configNightly = {
