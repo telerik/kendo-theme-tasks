@@ -47,8 +47,7 @@
   "scripts": {
     "eslint": "eslint \"**/*.js\"",
     "test": "mocha",
-    "mocha-dots": "mocha --reporter dot",
-    "semantic-release": "semantic-release"
+    "mocha-dots": "mocha --reporter dot"
   },
   "husky": {
     "hooks": {

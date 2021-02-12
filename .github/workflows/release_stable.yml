@@ -46,7 +46,7 @@ jobs:
         run: npm ci
 
       - name: Publish
-        run: npx semantic-release --extends ./.releaserc-stable.json
+        run: npx semantic-release --nightly
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
