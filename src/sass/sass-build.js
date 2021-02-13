@@ -9,12 +9,9 @@ const postcss = require('postcss');
 const sassImporterFactory = require('./sass-importer');
 const {
     logger,
-    colorTheme,
     ensureDirSync,
     replacePathVariables
 } = require('../utils');
-
-colors.theme(colorTheme);
 
 const defaults = {
     cwd: process.cwd(),
@@ -46,15 +43,26 @@ const defaults = {
     postcssPlugins: []
 };
 
+function logFile( file ) {
+    return colors.magentaBright( file.replace( `${process.cwd()}/`, '' ) );
+}
+
 function sassCompile( options ) {
 
     const { file, compiler, sassOptions } = options;
+    let messages;
 
     try {
         return compiler.renderSync({ file, ...sassOptions }).css.toString('utf-8');
     } catch (error) {
-        logger.error(`Error: ${colors.error(error.formatted)}`);
-        logger.info(`File: ${error.file}:${error.line}:${error.column}`);
+        messages = error.formatted.split( '\n' );
+        messages.shift();
+        messages[0] += `:${error.line}:${error.column}`;
+        messages.unshift( error.message );
+
+        messages.forEach( message => {
+            logger.error( message );
+        });
 
         throw new Error( error.message, error.file, error.line );
     }
@@ -84,7 +92,7 @@ function sassBuild( options ) {
     files = glob.sync( path.resolve( cwd, file ) );
 
     if ( files.length === 0 ) {
-        logger.info( 'Provide a Sass file to render' );
+        logger.warn( 'Provide a Sass file to render' );
         return;
     }
 
@@ -101,7 +109,7 @@ function sassBuild( options ) {
             replacePathVariables( output.filename, { filename: file } )
         );
 
-        logger.info(`Compiling ${colors.info(file)} to ${colors.info(outFile)}`);
+        logger.info( `Compiling ${logFile( file )} to ${logFile( outFile )}` );
 
         result = sassCompile({ file, compiler, sassOptions });
 

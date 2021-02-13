@@ -1,19 +1,16 @@
 const colors = require('ansi-colors');
 const gulplogger = require('gulplog');
 
-const colorTheme = {
-    error: colors.red,
-    info: colors.magentaBright
-};
-
 const logger = {
     info: ( message, ...args ) => {
-        gulplogger.info( colors.gray(message), ...args );
+        gulplogger.info( colors.gray( `Info: ${message}`), ...args );
+    },
+    warn: ( message, ...args ) => {
+        gulplogger.warn( colors.gray(`Warn: ${colors.dim.yellow(message)}`), ...args );
     },
     error: ( message, ...args ) => {
-        gulplogger.error( message, ...args );
+        gulplogger.error( `Error: ${colors.red( message )}`, ...args );
     }
 };
 
 module.exports.logger = logger;
-module.exports.colorTheme = colorTheme;
