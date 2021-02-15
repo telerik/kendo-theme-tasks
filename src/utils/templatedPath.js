@@ -35,10 +35,13 @@ function replacePathVariables( template, filePath ) {
     const replacements = new Map();
 
     let result = template;
+    let pathData = filePath;
 
-    if (filePath && typeof filePath === 'string') {
+    if (filePath) {
 
-        const pathData = parsePath(filePath);
+        if (typeof filePath === 'string') {
+            pathData = parsePath(filePath);
+        }
 
         replacements.set('file', replacer(pathData.file));
         replacements.set('path', replacer(pathData.path, true));
