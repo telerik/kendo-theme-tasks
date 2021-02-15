@@ -106,7 +106,7 @@ function sassBuild( options ) {
 
         outFile = path.resolve(
             output.path,
-            replacePathVariables( output.filename, { filename: file } )
+            replacePathVariables( output.filename, file )
         );
 
         logger.info( `Compiling ${logFile( file )} to ${logFile( outFile )}` );

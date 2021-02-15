@@ -11,7 +11,7 @@ const { replacePathVariables } = require('../utils/templatedPath');
 const REGEXP = /<([\w]+)>/gi;
 const cwd = process.cwd();
 
-/** @typedef { import('../types').ParsedFileData } ParsedFileData */
+/** @typedef { import('../types').FileData } FileData */
 /** @typedef { import('../types').OutputOptions } OutputOptions */
 /** @typedef { import('../types').EmbedFileOptions } EmbedFileOptions */
 
@@ -33,11 +33,11 @@ const defaults = {
 
 /**
  * @param {string} filePath path to file
- * @returns {ParsedFileData} parsed parts
+ * @returns {FileData} parsed parts
  */
 function parseFile( filePath ) {
 
-    /** @type {ParsedFileData} */
+    /** @type {FileData} */
     const fileData = {};
     const fileStats = fs.statSync( filePath );
 
@@ -68,7 +68,6 @@ function replaceFileVariables( template, file ) {
     const replacements = new Map();
 
     let result = template;
-
     const fileData = parseFile(file);
 
     replacements.set('file', replacer(fileData.file));

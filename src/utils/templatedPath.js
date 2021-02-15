@@ -1,65 +1,67 @@
 // Like https://github.com/webpack/webpack/blob/master/lib/TemplatedPathPlugin.js but simpler
-const { basename, extname } = require( 'path' );
+const path = require( 'path' );
 const { replacer } = require('./replacer');
 
 const REGEXP = /\[([\w]+)\]/gi;
 
-/** @typedef {{ file: string, path: string, base: string, name: string, ext: string }} ParsedPathData */
-/** @typedef {{ filename: string }} FileInfo */
+/** @typedef { import('../types').PathData } PathData */
 
 /**
  * @param {string} filePath path to file
- * @returns {ParsedPathData} parsed parts
+ * @returns {PathData} parsed parts
  */
 function parsePath( filePath ) {
 
-    const file = filePath.startsWith('./') ? filePath.slice(2) : filePath;
-    const ext = extname( file );
-    const base = basename( file );
-    const name = base.slice( 0, base.length - ext.length );
-    const path = file.slice( 0, file.length - base.length );
+    /** @type {PathData} */
+    const pathData = {};
 
-    return { file, path, base, name, ext };
+    pathData.file = filePath.startsWith('./') ? filePath.slice(2) : filePath;
+    pathData.ext = path.extname( pathData.file );
+    pathData.base = path.basename( pathData.file );
+    pathData.name = pathData.base.slice( 0, pathData.base.length - pathData.ext.length );
+    pathData.path = pathData.file.slice( 0, pathData.file.length - pathData.base.length );
+
+    return pathData;
 }
 
 /**
- * @param {string | (options: FileInfo) => string} path the raw path
- * @param {FileInfo} fileInfo options affecting the output of the compilation
+ * @param {string | (options: PathData) => string} template the raw path template
+ * @param {string | PathData } filePath path to file or path data
  * @returns {string} the interpolated path
  */
-function replacePathVariables( path, fileInfo ) {
+function replacePathVariables( template, filePath ) {
 
     /** @type {Map<string, Function>} */
     const replacements = new Map();
 
-    let { filename } = fileInfo;
+    let result = template;
 
-    if (filename && typeof filename === 'string') {
+    if (filePath && typeof filePath === 'string') {
 
-        const { file, path, base, name, ext } = parsePath(filename);
+        const pathData = parsePath(filePath);
 
-        replacements.set('file', replacer(file));
-        replacements.set('path', replacer(path, true));
-        replacements.set('base', replacer(base));
-        replacements.set('name', replacer(name));
-        replacements.set('ext', replacer(ext, true));
+        replacements.set('file', replacer(pathData.file));
+        replacements.set('path', replacer(pathData.path, true));
+        replacements.set('base', replacer(pathData.base));
+        replacements.set('name', replacer(pathData.name));
+        replacements.set('ext', replacer(pathData.ext, true));
     }
 
-    if (typeof path === 'function') {
-        path = path(fileInfo); // eslint-disable-line no-param-reassign
+    if (typeof template === 'function') {
+        result = result(filePath);
     }
 
-    path = path.replace( REGEXP, ( match, content ) => { // eslint-disable-line no-param-reassign
+    result = result.replace( REGEXP, ( match, content ) => {
         const replacer = replacements.get( content );
 
         if (replacer !== undefined) {
-            return replacer( content, path );
+            return replacer( content, result );
         }
 
         return match;
     });
 
-    return path;
+    return result;
 }
 
 module.exports.parsePath = parsePath;

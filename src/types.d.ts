@@ -1,9 +1,12 @@
-export type ParsedFileData = {
+export type PathData = {
     file: string,
     path: string,
     base: string,
     name: string,
-    ext: string,
+    ext: string
+}
+
+export type FileData =  PathData & {
     mime: string,
     /** The size of the file in bytes. */
     size: number,
