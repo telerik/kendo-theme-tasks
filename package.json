@@ -10,6 +10,7 @@
   ],
   "main": "index.js",
   "files": [
+    "*.js",
     "src/"
   ],
   "repository": {

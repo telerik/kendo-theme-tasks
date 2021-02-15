@@ -1,0 +1,13 @@
+# files
+.commitlintrc.json
+.editorconfig
+.eslintignore
+.eslintrc.json
+.gitignore
+.mocharc.json
+release.config.js
+
+
+# directories
+.github/
+test/
