@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.1.0...v1.1.1) (2021-02-15)
+
+
+### Bug Fixes
+
+* include root js files in distribution ([db54995](https://github.com/telerik/kendo-theme-tasks/commit/db5499556a7d04ad882dd8ad68b2766e4d1d65a0))
+
 # [1.1.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.0.1...v1.1.0) (2021-02-15)
 
 
