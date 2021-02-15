@@ -1,7 +1,7 @@
-const { sassBuild } = require('./src/sass/sass-build');
-const { sassFlatten } = require('./src/sass/sass-flatten');
+const embedFile = require('./embedFile');
+const sass = require('./sass');
+const utils = require('./utils');
 
-module.exports = {
-    sassBuild,
-    sassFlatten
-};
+module.exports.embedFile = embedFile;
+module.exports.sass = sass;
+module.exports.utils = utils;

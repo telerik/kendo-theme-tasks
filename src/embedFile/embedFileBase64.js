@@ -101,7 +101,7 @@ function replaceFileVariables( template, file ) {
 /**
  * @param {EmbedFileOptions} options
  */
-function embedFile( options ) {
+function embedFileBase64( options ) {
 
     /** @type {EmbedFileOptions} */
     const opts = merge( {}, defaults, options );
@@ -126,4 +126,4 @@ function embedFile( options ) {
 
 module.exports.parseFile = parseFile;
 module.exports.replaceFileVariables = replaceFileVariables;
-module.exports.embedFile = embedFile;
+module.exports.embedFileBase64 = embedFileBase64;
