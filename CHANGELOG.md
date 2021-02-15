@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.0.1...v1.1.0) (2021-02-15)
+
+
+### Bug Fixes
+
+* harmonize API ([9750c08](https://github.com/telerik/kendo-theme-tasks/commit/9750c088000d386836d819f3a977b48ae0f00e2a))
+* parsePathData should accept object of type PathData ([393c05a](https://github.com/telerik/kendo-theme-tasks/commit/393c05a656562c8ce388c036d7ab3060ef1788fa))
+* unify signature of replacePathVariables and replaceFileVariables ([e32500a](https://github.com/telerik/kendo-theme-tasks/commit/e32500ae3ca37923ed299653402a60a1a469f9ba))
+
+
+### Features
+
+* add functionality to embed files as base64 ([3fbcdb0](https://github.com/telerik/kendo-theme-tasks/commit/3fbcdb01e5b343c44c09080347b95f6b110123bb))
+
 ## [1.0.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.0.0...v1.0.1) (2021-02-13)
 
 
