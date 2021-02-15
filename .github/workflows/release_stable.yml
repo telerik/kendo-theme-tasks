@@ -50,3 +50,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Update develop
+        run: |
+          git push origin master:develop --quiet > /dev/null 2>&1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
