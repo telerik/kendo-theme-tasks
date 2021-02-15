@@ -9,7 +9,7 @@ function replacer(value, allowEmpty) {
         if (value === null || value === undefined) {
             if (!allowEmpty) {
                 throw new Error(
-                    `Path variable ${match} not implemented in this context: ${input}`
+                    `Variable ${match} not implemented in this context: ${input}`
                 );
             }
             return '';

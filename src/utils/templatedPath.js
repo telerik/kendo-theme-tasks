@@ -4,7 +4,7 @@ const { replacer } = require('./replacer');
 
 const REGEXP = /\[([\w]+)\]/gi;
 
-/** @typedef {{ path: string, base: string, name: string, ext: string }} ParsedPathData */
+/** @typedef {{ file: string, path: string, base: string, name: string, ext: string }} ParsedPathData */
 /** @typedef {{ filename: string }} FileInfo */
 
 /**
