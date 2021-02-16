@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@joneff/baka": "^0.5.1",
+    "@progress/dss": "^1.0.1",
     "ansi-colors": "^4.1.1",
     "glob": "^7.1.6",
     "gulplog": "^1.0.0",
