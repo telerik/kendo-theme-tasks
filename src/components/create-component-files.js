@@ -2,15 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const nunjucks = require('nunjucks');
 
-function createComponentFiles(name) {
-    const componentName = name;
+function createComponentFiles(args) {
+    const componentName = args.name;
     const templatesDir = path.resolve(__dirname, 'templates/create-component-files');
     const themes = [ 'default', 'bootstrap', 'material', 'classic' ];
     const files = fs.readdirSync(templatesDir);
 
     nunjucks.configure(templatesDir, { autoescape: false });
 
-    if (!componentName) {
+    if (!componentName || typeof(componentName) !== 'string') {
         throw 'Pass the component name as a parameter!';
     }
 

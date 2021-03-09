@@ -32,7 +32,8 @@
     "lodash.merge": "^4.6.2",
     "mime": "^2.5.0",
     "nunjucks": "^3.2.3",
-    "postcss": "^8.0.0"
+    "postcss": "^8.0.0",
+    "yargs-parser": "^20.2.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
