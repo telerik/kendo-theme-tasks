@@ -1,0 +1,138 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "kendo-cli://schemas/ThemebuilderSwatch.json",
+    "title": "Themebuilder Swatch Definition",
+
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "name": {
+            "description": "Name of the theme. Used for naming download artifacts.",
+            "type": "string"
+        },
+        "base": {
+            "description": "Base for the theme. Must be a valid kendo theme name.",
+            "type": "string",
+            "enum": [
+                "@progress/kendo-theme-default",
+                "@progress/kendo-theme-bootstrap",
+                "@progress/kendo-theme-material",
+                "@progress/kendo-theme-classic",
+                "@progress/kendo-theme-nouvelle"
+            ]
+        },
+        "components": {
+            "description": "Components to include in the compiled theme. Leave empty for all.",
+            "$ref": "./KendoComponent.json#/definitions/componentList"
+        },
+        "themeBuilder": {
+            "description": "List of variables to be customized in ThemeBuilder, organized in groups",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/group"
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": [ "$schema", "name", "base", "components", "themeBuilder" ],
+
+    "definitions": {
+
+        "group": {
+            "description": "A group of variables",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Friendly group name. It will be shown as title in the themebuilder",
+                    "type": "string"
+                },
+                "variables": {
+                    "description": "A list of variables. Each key refers to a sass variable name without the dollar sign",
+                    "type": "object",
+                    "patternProperties": {
+                        "^[a-zA-Z]": {
+                            "$ref": "#/definitions/variable"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "required": [ "variables" ]
+        },
+
+        "variable": {
+            "description": "An object representation of a variable.",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Friendly name for variable. Will be shown in Themebuilder as label for editor",
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "Sass.json#/definitions/variableType"
+                },
+                "value": {
+                    "type": [ "string", "boolean", "null" ]
+                }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "type": { "const": "color" }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "value": {
+                                "oneOf": [
+                                    {
+                                        "$ref": "CssColor.json#/definitions/CssColor",
+                                        "examples": [
+                                            "black",
+                                            "#000000",
+                                            "#000",
+                                            "#000000FF",
+                                            "#000f",
+                                            "rgb( 0, 0, 0 )",
+                                            "rgba( 0, 0, 0, 0 )"
+                                        ]
+                                    },
+                                    {
+                                        "pattern": "^\\{\\{\\s*([a-zA-z\\d\\-\\_]+)(\\.[a-zA-z\\d\\-\\_]+)*\\s*\\}\\}$",
+                                        "examples": [
+                                            "{{ base.themeColors.primary }}"
+                                        ]
+                                    }
+                                ],
+                                "description": "CSS color or token reference"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": { "const": "boolean" }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "value": {
+                                "enum": [
+                                    true,
+                                    false
+                                ],
+                                "description": "true or false"
+                            }
+                        }
+                    }
+                }
+            ],
+            "additionalProperties": false,
+            "required": [ "name", "type", "value" ]
+        }
+    }
+}

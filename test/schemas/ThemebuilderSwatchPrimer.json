@@ -1,0 +1,37 @@
+{
+    "$schema": "../../lib/schemas/ThemebuilderSwatch.json",
+    "name": "ThemeName",
+    "base": "@progress/kendo-theme-default",
+    "components": [
+        "grid",
+        "button",
+        "appbar"
+    ],
+    "themeBuilder": [
+        {
+            "name": "Global settings",
+            "variables": {
+                "enable-rounded": {
+                    "name": "Error",
+                    "type": "boolean",
+                    "value": false
+                }
+            }
+        },
+        {
+            "name": "Theme Colors",
+            "variables": {
+                "primary": {
+                    "name": "Primary",
+                    "type": "color",
+                    "value": "{{ base.themeColors.primary }}"
+                },
+                "error": {
+                    "name": "Error",
+                    "type": "color",
+                    "value": "rgb( 123, 123, 300 )"
+                }
+            }
+        }
+    ]
+}

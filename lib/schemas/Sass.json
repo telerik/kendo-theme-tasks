@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "kendo-cli://schemas/Sass.json",
+    "title": "Sass schemas",
+
+    "definitions": {
+
+        "variableType": {
+            "description": "Valid Sass variable type",
+            "markdownDescription": "Valid Sass variable type. See [Sass values](https://sass-lang.com/documentation/values)",
+            "type": "string",
+            "enum": [
+                "color",
+                "boolean"
+            ]
+        }
+
+    }
+}
