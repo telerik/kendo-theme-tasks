@@ -1,0 +1,74 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "kendo-cli://schemas/css-number.json",
+    "title": "Schema definition for CSS number",
+
+    "$defs": {
+
+        "zero": {
+            "oneOf": [
+                {
+                    "type": "number",
+                    "const": 0
+                },
+                {
+                    "type": "string",
+                    "const": "0"
+                }
+            ]
+        },
+
+        "positive-length": {
+            "oneOf": [
+                { "$ref": "#/$defs/zero" },
+                {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "pattern": "^\\d+(px|pt|pc|in|mm|cm|%|em|ex|ch|rem|vw|vh|vmin|vmax)$"
+                        },
+                        {
+                            "pattern": "^\\d+\\.(px|pt|pc|in|mm|cm|%|em|ex|ch|rem|vw|vh|vmin|vmax)$"
+                        },
+                        {
+                            "pattern": "^\\d+\\.\\d+(px|pt|pc|in|mm|cm|%|em|ex|ch|rem|vw|vh|vmin|vmax)$"
+                        },
+                        {
+                            "pattern": "^\\.\\d+(px|pt|pc|in|mm|cm|%|em|ex|ch|rem|vw|vh|vmin|vmax)$"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        "negative-length": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "pattern": "^-\\d+(px|pt|pc|in|mm|cm|%|em|ex|ch|rem|vw|vh|vmin|vmax)$"
+                        },
+                        {
+                            "pattern": "^-\\d+\\.(px|pt|pc|in|mm|cm|%|em|ex|ch|rem|vw|vh|vmin|vmax)$"
+                        },
+                        {
+                            "pattern": "^-\\d+\\.\\d+(px|pt|pc|in|mm|cm|%|em|ex|ch|rem|vw|vh|vmin|vmax)$"
+                        },
+                        {
+                            "pattern": "^-\\.\\d+(px|pt|pc|in|mm|cm|%|em|ex|ch|rem|vw|vh|vmin|vmax)$"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        "css-length": {
+            "oneOf": [
+                { "$ref": "#/$defs/positive-length" },
+                { "$ref": "#/$defs/negative-length" }
+            ]
+        }
+
+    }
+}
