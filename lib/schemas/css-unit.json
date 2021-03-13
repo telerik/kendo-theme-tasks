@@ -1,0 +1,51 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "kendo-cli://schemas/css-unit.json",
+    "title": "Schema definition for CSS unit",
+
+    "definitions": {
+
+        "absolute-unit": {
+            "type": "string",
+            "enum": [
+                "px",
+                "pt",
+                "pc",
+                "in",
+                "mm",
+                "cm"
+            ]
+        },
+
+        "percentage-unit": {
+            "type": "string",
+            "enum": [
+                "%"
+            ]
+        },
+
+        "relative-unit": {
+            "type": "string",
+            "enum": [
+                "em",
+                "ex",
+                "ch",
+                "rem",
+                "lh",
+                "vw",
+                "vh",
+                "vmin",
+                "vmax"
+            ]
+        },
+
+        "css-unit": {
+            "oneOf": [
+                { "$ref": "#/definitions/absolute-unit"},
+                { "$ref": "#/definitions/percentage-unit"},
+                { "$ref": "#/definitions/relative-unit"}
+            ]
+        }
+
+    }
+}

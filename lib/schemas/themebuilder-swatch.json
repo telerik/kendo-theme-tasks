@@ -1,0 +1,180 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "kendo-cli://schemas/themebuilder-swatch.json",
+    "title": "Themebuilder Swatch Definition",
+
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "name": {
+            "description": "Name of the theme. Used for naming download artifacts.",
+            "type": "string"
+        },
+        "base": {
+            "description": "Base for the theme. Must be a valid kendo theme name.",
+            "type": "string",
+            "enum": [
+                "@progress/kendo-theme-default",
+                "@progress/kendo-theme-bootstrap",
+                "@progress/kendo-theme-material",
+                "@progress/kendo-theme-classic",
+                "@progress/kendo-theme-nouvelle"
+            ]
+        },
+        "previewColors": {
+            "description": "A list of HEX colors that represents the theme.",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/css-color"
+            },
+            "minimum": 2
+        },
+        "components": {
+            "description": "Components to include in the compiled theme. Leave empty for all.",
+            "$ref": "#/$defs/component-list"
+        },
+        "themeBuilder": {
+            "description": "List of variables to be customized in ThemeBuilder, organized in groups",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/group"
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": [ "$schema", "name", "base", "themeBuilder" ],
+
+    "$defs": {
+
+        "css-color": { "$ref": "./css-color.json#/$defs/css-color" },
+        "css-length": { "$ref": "./css-number.json#/$defs/css-length" },
+        "sass-variable-type": { "$ref": "./sass-variable.json#/$defs/sass-variable-type" },
+        "component-list": { "$ref": "./kendo-component.json#/$defs/component-list" },
+
+        "group": {
+            "description": "A group of variables",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Friendly group name. It will be shown as title in the themebuilder",
+                    "type": "string"
+                },
+                "variables": {
+                    "description": "A list of variables. Each key refers to a sass variable name without the dollar sign",
+                    "type": "object",
+                    "patternProperties": {
+                        "^[a-zA-Z]": {
+                            "$ref": "#/$defs/variable"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "required": [ "variables" ]
+        },
+
+        "variable": {
+            "description": "An object representation of a variable.",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Friendly name for variable. Will be shown in Themebuilder as label for editor",
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/$defs/sass-variable-type"
+                },
+                "value": {}
+            },
+            "additionalProperties": false,
+            "required": [ "name", "type", "value" ],
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "type": { "const": "color" },
+                            "required": [ "type" ]
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "value": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/$defs/css-color",
+                                        "examples": [
+                                            "black",
+                                            "#000000",
+                                            "#000",
+                                            "#000000FF",
+                                            "#000f",
+                                            "rgb( 0, 0, 0 )",
+                                            "rgba( 0, 0, 0, 0 )"
+                                        ]
+                                    },
+                                    {
+                                        "pattern": "^\\{\\{\\s*([a-zA-z\\d\\-\\_]+)(\\.[a-zA-z\\d\\-\\_]+)*\\s*\\}\\}$",
+                                        "examples": [
+                                            "{{ base.themeColors.primary }}"
+                                        ]
+                                    }
+                                ],
+                                "description": "CSS color or token reference"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": { "const": "number" },
+                            "required": [ "type" ]
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "value": {
+                                "description": "Valid CSS length or null",
+                                "markdownDescription": "Valid CSS length or `null`. See [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/length).",
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/$defs/css-length"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": { "const": "boolean" },
+                            "required": [ "type" ]
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "value": {
+                                "enum": [
+                                    true,
+                                    false
+                                ],
+                                "description": "true or false"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "kendo-cli://schemas/sass-variable.json",
+    "title": "Sass schemas",
+
+    "$defs": {
+
+        "sass-variable-type": {
+            "description": "Valid Sass variable type. One of color, number or boolean",
+            "markdownDescription": "Valid Sass variable type. One of `color`, `number` or `boolean`",
+            "type": "string",
+            "enum": [
+                "color",
+                "number",
+                "boolean"
+            ]
+        }
+
+    }
+}
