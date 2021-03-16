@@ -1,5 +1,5 @@
 const path = require('path');
-const { sassFlatten } = require('../../src/sass/sass-flatten');
+const { sassFlatten } = require('../../src/build/sass-flatten');
 
 function flatten(args = {}) {
     const file = args.file ? args.file : 'kendoTheme.config.js';

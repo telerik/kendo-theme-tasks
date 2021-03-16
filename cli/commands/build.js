@@ -1,5 +1,5 @@
 const path = require('path');
-const { sassBuild } = require('../../src/sass/sass-build');
+const { sassBuild } = require('../../src/build/sass-build');
 
 function build(args = {}) {
     const fileExt = args.file ? path.extname(args.file) : '.js';
