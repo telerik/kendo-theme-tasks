@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.1.1...v1.2.0) (2021-03-16)
+
+
+### Features
+
+* **cli:** initial kendo-theme CLI implementation ([f9f0e82](https://github.com/telerik/kendo-theme-tasks/commit/f9f0e8207dec9255b47aee249a3d433f89e70239))
+* **components:** add generation of all files for a new component ([9d84514](https://github.com/telerik/kendo-theme-tasks/commit/9d845149665c606a653d07a945218f542768a669))
+
 ## [1.1.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.1.0...v1.1.1) (2021-02-15)
 
 
