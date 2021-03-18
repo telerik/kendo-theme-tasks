@@ -14,7 +14,7 @@ Creates a Kendo Theme configuration file.
 
 ### build
 
-Builds a `kendoTheme.config.js`, `*.scss`, or `*.less` file.
+Builds a `kendoTheme.config.js`, `*.json` validated by a Kendo theme-tasks schema, `*.scss`, or `*.less` file.
 
 #### Parameters
 
