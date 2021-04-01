@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.3.0...v1.3.1) (2021-04-01)
+
+
+### Bug Fixes
+
+* include lib direcotry in package ([cb785bc](https://github.com/telerik/kendo-theme-tasks/commit/cb785bce5ebb2a334a6af4379fa4f40ddf3d15df))
+
 # [1.3.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.2.0...v1.3.0) (2021-04-01)
 
 
