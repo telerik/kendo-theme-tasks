@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.2.0...v1.3.0) (2021-04-01)
+
+
+### Features
+
+* add schemas for themebuilder and swatches ([f1ae372](https://github.com/telerik/kendo-theme-tasks/commit/f1ae372c6852682cfb962a632b95ce26b4053c9c))
+* **build:** add functionality to build JSON files ([ff50542](https://github.com/telerik/kendo-theme-tasks/commit/ff5054273c137dfc8cebee84d7c2eddb8d37be45))
+
 # [1.2.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.1.1...v1.2.0) (2021-03-16)
 
 
