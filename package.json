@@ -11,6 +11,7 @@
   "main": "index.js",
   "files": [
     "*.js",
+    "lib/",
     "src/"
   ],
   "repository": {
