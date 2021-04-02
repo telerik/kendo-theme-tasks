@@ -21,6 +21,31 @@
                 "border-radius": {
                     "name": "Border radius",
                     "type": "number",
+                    "value": 0
+                },
+                "not-border-radius": {
+                    "name": "Border radius",
+                    "type": "number",
+                    "value": "0"
+                },
+                "yet-another-border-radius": {
+                    "name": "Border radius",
+                    "type": "number",
+                    "value": null
+                },
+                "not-another-border-radius": {
+                    "name": "Border radius",
+                    "type": "number",
+                    "value": "0.01px"
+                },
+                "enable-border-radius": {
+                    "name": "Border radius",
+                    "type": "boolean",
+                    "value": true
+                },
+                "disable-border-radius": {
+                    "name": "Border radius",
+                    "type": "boolean",
                     "value": null
                 }
             }
@@ -30,8 +55,28 @@
             "variables": {
                 "primary": {
                     "name": "Primary",
-                    "type": "hidden",
-                    "value": "#ff6358"
+                    "type": "colorlist",
+                    "value": null,
+                    "enum": [
+                        "red",
+                        "pink",
+                        "purple",
+                        "deepPurple",
+                        "indigo",
+                        "blue",
+                        "lightBlue",
+                        "cyan",
+                        "teal",
+                        "green",
+                        "lime",
+                        "yellow",
+                        "amber",
+                        "orange",
+                        "deepOrange",
+                        "brown",
+                        "gray",
+                        "blueGray"
+                    ]
                 },
                 "info": {
                     "name": "Info",

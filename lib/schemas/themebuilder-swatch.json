@@ -89,7 +89,8 @@
                     "markdownDescription": "Variable type. One of `color`, `number`, `boolean` or `hidden`.",
                     "$ref": "#/$defs/variable-type"
                 },
-                "value": {}
+                "value": {},
+                "enum": {}
             },
             "additionalProperties": false,
             "required": [ "name", "type", "value" ],
@@ -136,6 +137,32 @@
                 {
                     "if": {
                         "properties": {
+                            "type": { "const": "colorlist" },
+                            "required": [ "type" ]
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "value": {
+                                "description": "A specific color from discreet color list.",
+                                "markdownDescription": "A specific color from discreet color list.",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "enum": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
                             "type": { "const": "number" },
                             "required": [ "type" ]
                         }
@@ -167,11 +194,13 @@
                     "then": {
                         "properties": {
                             "value": {
+                                "description": "true or false",
+                                "markdownDescription": "`true` or `false`",
                                 "enum": [
                                     true,
-                                    false
-                                ],
-                                "description": "true or false"
+                                    false,
+                                    null
+                                ]
                             }
                         }
                     }
@@ -188,6 +217,10 @@
                 {
                     "type": "string",
                     "const": "hidden"
+                },
+                {
+                    "type": "string",
+                    "const": "colorlist"
                 }
             ]
         }
