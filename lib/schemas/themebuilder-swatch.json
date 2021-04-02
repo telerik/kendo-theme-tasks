@@ -22,6 +22,11 @@
                 "@progress/kendo-theme-nouvelle"
             ]
         },
+        "hidden": {
+            "description": "Hides the swatch from themebuilder customization interface. Default is false. Note: this has no effect when uploading a swatch.",
+            "markdownDescription": "Hides the swatch from themebuilder customization interface. Default is `false`.\n\nNote: this has **no effect** when uploading a swatch.",
+            "type": "boolean"
+        },
         "previewColors": {
             "description": "A list of HEX colors that represents the theme.",
             "type": "array",
@@ -58,7 +63,7 @@
             "type": "object",
             "properties": {
                 "name": {
-                    "description": "Friendly group name. It will be shown as title in the themebuilder",
+                    "description": "Friendly group name. It will be shown as title in the themebuilder.",
                     "type": "string"
                 },
                 "variables": {
@@ -70,6 +75,11 @@
                         }
                     },
                     "additionalProperties": false
+                },
+                "hidden": {
+                    "description": "Hides the group from themebuilder customization interface. Default is false. Note: even a group is hidden, the variables will be processed!",
+                    "markdownDescription": "Hides the group from themebuilder customization interface. Default is `false`. \n\nNote: even a group is hidden, the variables will be processed!",
+                    "type": "boolean"
                 }
             },
             "additionalProperties": false,
@@ -90,6 +100,11 @@
                     "$ref": "#/$defs/variable-type"
                 },
                 "value": {},
+                "hidden": {
+                    "description": "Hides the variable from themebuilder customization interface. Default is false. Note: even a variable is hidden, it will be processed!",
+                    "markdownDescription": "Hides the variable from themebuilder customization interface. Default is `false`. \n\nNote: even a variable is hidden, it will be processed!",
+                    "type": "boolean"
+                },
                 "enum": {}
             },
             "additionalProperties": false,
@@ -213,10 +228,6 @@
             "oneOf": [
                 {
                     "$ref": "#/$defs/sass-variable-type"
-                },
-                {
-                    "type": "string",
-                    "const": "hidden"
                 },
                 {
                     "type": "string",

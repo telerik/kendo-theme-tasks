@@ -2,6 +2,7 @@
     "$schema": "../../lib/schemas/themebuilder-swatch.json",
     "name": "Default",
     "base": "@progress/kendo-theme-default",
+    "hidden": true,
     "previewColors": [
         "#ffffff",
         "#ededed",
@@ -17,6 +18,7 @@
     "themeBuilder": [
         {
             "name": "",
+            "hidden": true,
             "variables": {
                 "border-radius": {
                     "name": "Border radius",
@@ -26,7 +28,8 @@
                 "not-border-radius": {
                     "name": "Border radius",
                     "type": "number",
-                    "value": "0"
+                    "value": "0",
+                    "hidden": true
                 },
                 "yet-another-border-radius": {
                     "name": "Border radius",
