@@ -1,3 +1,17 @@
+# [1.4.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.3.1...v1.4.0) (2021-04-02)
+
+
+### Bug Fixes
+
+* set min and max items for previewColors array ([d6446ac](https://github.com/telerik/kendo-theme-tasks/commit/d6446acf123c6b587622826b9ccdaaf6fda9da55))
+* use draft-07 schema ([30b8795](https://github.com/telerik/kendo-theme-tasks/commit/30b87956330481e789a36dcf51a9ea3236874562))
+
+
+### Features
+
+* **schema:** add definitions for colorlist themebuilder variable ([6671ab1](https://github.com/telerik/kendo-theme-tasks/commit/6671ab1825e861475ced86cb99760de76cceb070))
+* **schema:** add definitions for hidden themebuilder variable ([a941ab7](https://github.com/telerik/kendo-theme-tasks/commit/a941ab7414b1ce739e5d6d2615f3aa7a00275647))
+
 ## [1.3.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.3.0...v1.3.1) (2021-04-01)
 
 
