@@ -85,7 +85,9 @@
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/sass-variable-type"
+                    "description": "Variable type. One of color, number, boolean or hidden.",
+                    "markdownDescription": "Variable type. One of `color`, `number`, `boolean` or `hidden`.",
+                    "$ref": "#/$defs/variable-type"
                 },
                 "value": {}
             },
@@ -173,6 +175,19 @@
                             }
                         }
                     }
+                }
+            ]
+        },
+
+
+        "variable-type": {
+            "oneOf": [
+                {
+                    "$ref": "#/$defs/sass-variable-type"
+                },
+                {
+                    "type": "string",
+                    "const": "hidden"
                 }
             ]
         }

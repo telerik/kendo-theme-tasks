@@ -30,7 +30,7 @@
             "variables": {
                 "primary": {
                     "name": "Primary",
-                    "type": "color",
+                    "type": "hidden",
                     "value": "#ff6358"
                 },
                 "info": {
