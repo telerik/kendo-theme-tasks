@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.4.0...v1.5.0) (2021-04-02)
+
+
+### Features
+
+* add global hidden attribute ot hide swatches, groups and variables from themebuilder interface ([04dded6](https://github.com/telerik/kendo-theme-tasks/commit/04dded6219ab6c4ee85d23995638e9741a1606bc))
+
 # [1.4.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.3.1...v1.4.0) (2021-04-02)
 
 
