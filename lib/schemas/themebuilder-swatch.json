@@ -28,7 +28,8 @@
             "items": {
                 "$ref": "#/$defs/css-color"
             },
-            "minimum": 2
+            "minItems": 2,
+            "maxItems": 8
         },
         "components": {
             "description": "Components to include in the compiled theme. Leave empty for all.",
