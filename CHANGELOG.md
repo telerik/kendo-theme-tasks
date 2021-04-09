@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.5.0...v1.6.0) (2021-04-09)
+
+
+### Features
+
+* **docs:** add logic for generating utils docs ([36c2a57](https://github.com/telerik/kendo-theme-tasks/commit/36c2a57223550b4d3defd5201fdee6fe1936278e))
+
 # [1.5.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.4.0...v1.5.0) (2021-04-02)
 
 
