@@ -111,7 +111,7 @@ function embedFileBase64( options ) {
 
     let outFile = path.resolve(
         output.path,
-        replacePathVariables( output.filename, { filename: opts.file } )
+        replacePathVariables( output.filename, opts.file )
     );
 
     let result = replaceFileVariables( opts.template, opts.file );
