@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.8.0...v1.8.1) (2021-05-03)
+
+
+### Bug Fixes
+
+* add mising light-green shade in material colors ([e5536f6](https://github.com/telerik/kendo-theme-tasks/commit/e5536f6ca46c3db5e7c1b1a7974e18be377373ce))
+
 # [1.8.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.7.0...v1.8.0) (2021-05-03)
 
 
