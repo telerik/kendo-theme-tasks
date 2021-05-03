@@ -185,6 +185,77 @@
                 {
                     "if": {
                         "properties": {
+                            "type": { "const": "color-mode" },
+                            "required": [ "type" ]
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "value": {
+                                "description": "How to apply colors based on intended theme luminocity. One of dark or light.",
+                                "markdownDescription": "How to apply colors based on intended theme luminocity. One of `dark` or `light`.",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/$defs/color-modes"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "enum": {
+                                "type": "array",
+                                "items": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/$defs/color-modes"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": { "const": "material-colorlist" },
+                            "required": [ "type" ]
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "value": {
+                                "description": "A specific color from discreet color list.",
+                                "markdownDescription": "A specific color from discreet color list.",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "enum": {
+                                "type": "array",
+                                "items": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/$defs/material-colors"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/material-colorlist-tuple"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
                             "type": { "const": "number" },
                             "required": [ "type" ]
                         }
@@ -239,6 +310,14 @@
                 {
                     "type": "string",
                     "const": "colorlist"
+                },
+                {
+                    "type": "string",
+                    "const": "color-mode"
+                },
+                {
+                    "type": "string",
+                    "const": "material-colorlist"
                 }
             ]
         },
@@ -257,6 +336,68 @@
             },
             "additionalProperties": false,
             "required": [ "value" ]
+        },
+        "color-modes": {
+            "type": "string",
+            "enum": [
+                "light",
+                "dark"
+            ]
+        },
+        "colormode-tuple": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "#/$defs/color-modes"
+                },
+                "preview": {
+                    "$ref": "#/$defs/css-color"
+                }
+            },
+            "additionalProperties": false,
+            "required": [ "text" ]
+        },
+        "material-colors": {
+            "type": "string",
+            "enum": [
+                "red",
+                "pink",
+                "purple",
+                "deepPurple",
+                "indigo",
+                "blue",
+                "lightBlue",
+                "cyan",
+                "teal",
+                "green",
+                "lime",
+                "yellow",
+                "amber",
+                "orange",
+                "deepOrange",
+                "brown",
+                "gray",
+                "blueGray"
+            ]
+        },
+        "material-colorlist-tuple": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "#/$defs/material-colors"
+                },
+                "preview": {
+                    "$ref": "#/$defs/css-color"
+                }
+            },
+            "additionalProperties": false,
+            "required": [ "text" ]
         }
 
     }
