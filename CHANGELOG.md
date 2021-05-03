@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/telerik/kendo-theme-tasks/compare/v1.8.1...v1.8.2) (2021-05-03)
+
+
+### Bug Fixes
+
+* use correct enum values for color mode ([5d12b05](https://github.com/telerik/kendo-theme-tasks/commit/5d12b0581fc13580df50cb04b800e6ced123774e))
+
 ## [1.8.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.8.0...v1.8.1) (2021-05-03)
 
 
