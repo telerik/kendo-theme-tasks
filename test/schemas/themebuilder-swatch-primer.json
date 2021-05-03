@@ -58,13 +58,13 @@
             "variables": {
                 "primary": {
                     "name": "Primary",
-                    "type": "colorlist",
+                    "type": "material-colorlist",
                     "value": null,
                     "enum": [
                         "red",
                         "pink",
                         "purple",
-                        { "text": "deepPurple", "value": "tan" },
+                        { "text": "Deep purple", "value": "deepPurple" },
                         "indigo",
                         "blue",
                         "lightBlue",
@@ -83,13 +83,13 @@
                 },
                 "info": {
                     "name": "Info",
-                    "type": "color",
-                    "value": "#3e80ed"
+                    "type": "color-mode",
+                    "value": "light"
                 },
                 "success": {
                     "name": "Success",
                     "type": "color",
-                    "value": "#5ec232"
+                    "value": null
                 },
                 "warning": {
                     "name": "Warning",
