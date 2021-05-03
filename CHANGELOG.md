@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.7.0...v1.8.0) (2021-05-03)
+
+
+### Features
+
+* breakdown colorlist into colorlist, material-colorlist and color-mode ([9659edd](https://github.com/telerik/kendo-theme-tasks/commit/9659edd4b4fd9f043e691d9d6f2fc9d96bec8664))
+
 # [1.7.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.6.0...v1.7.0) (2021-05-03)
 
 
