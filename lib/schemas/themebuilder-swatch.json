@@ -212,7 +212,7 @@
                                 "items": {
                                     "oneOf": [
                                         {
-                                            "$ref": "#/$defs/color-modes"
+                                            "$ref": "#/$defs/colormode-tuple"
                                         }
                                     ]
                                 }
@@ -358,7 +358,7 @@
                 }
             },
             "additionalProperties": false,
-            "required": [ "text" ]
+            "required": [ "value" ]
         },
         "material-colors": {
             "type": "string",
@@ -398,7 +398,7 @@
                 }
             },
             "additionalProperties": false,
-            "required": [ "text" ]
+            "required": [ "value" ]
         }
 
     }
