@@ -1,3 +1,15 @@
+# [1.7.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.6.0...v1.7.0) (2021-05-03)
+
+
+### Bug Fixes
+
+* use opts.file for embedFileBase64 ([0740d48](https://github.com/telerik/kendo-theme-tasks/commit/0740d489661a167cfaa537c156ae4fbf85c1db41))
+
+
+### Features
+
+* add schema for material colorlist tuple ([e84d317](https://github.com/telerik/kendo-theme-tasks/commit/e84d3173dc590f204541d64c086ba6a303a5b98a))
+
 # [1.6.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.5.0...v1.6.0) (2021-04-09)
 
 
