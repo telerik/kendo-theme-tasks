@@ -64,7 +64,7 @@
                         "red",
                         "pink",
                         "purple",
-                        "deepPurple",
+                        { "text": "deepPurple", "value": "tan" },
                         "indigo",
                         "blue",
                         "lightBlue",

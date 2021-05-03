@@ -169,7 +169,14 @@
                             "enum": {
                                 "type": "array",
                                 "items": {
-                                    "type": "string"
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/$defs/css-color"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/colorlist-tuple"
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -234,6 +241,22 @@
                     "const": "colorlist"
                 }
             ]
+        },
+        "colorlist-tuple": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "#/$defs/css-color"
+                },
+                "preview": {
+                    "$ref": "#/$defs/css-color"
+                }
+            },
+            "additionalProperties": false,
+            "required": [ "value" ]
         }
 
     }
