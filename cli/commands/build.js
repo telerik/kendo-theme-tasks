@@ -1,13 +1,15 @@
 const path = require('path');
-const { sassBuild } = require('../../src/build/sass-build');
-const { jsonBuild } = require('../../src/build/json-build');
+const {
+    sassBuild,
+    jsonBuild
+} = require('../../src/build');
 
-function build(args = {}) {
-    const fileExt = args.file ? path.extname(args.file) : '.js';
+function build(options) {
+    const fileExt = options.file ? path.extname(options.file) : '.js';
 
     switch (fileExt) {
         case '.scss':
-            sassBuild(args);
+            sassBuild(options);
             break;
         case '.less':
             //TODO: create Less build
@@ -18,7 +20,7 @@ function build(args = {}) {
             console.log('building kendoTheme.config.js'); // eslint-disable-line no-console
             break;
         case '.json':
-            jsonBuild(args);
+            jsonBuild(options);
             break;
         default:
             throw 'Unsupported file type!';

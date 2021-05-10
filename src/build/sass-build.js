@@ -62,7 +62,7 @@ function sassCompile( options ) {
 
     let rawResult;
     let result = '';
-    const sassCompiler = sassOptions.implementation;
+    const sassCompiler = sassOptions.implementation || require('node-sass');
     delete sassOptions.implementation;
 
     /** @type {import('postcss').default} */
