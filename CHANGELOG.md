@@ -1,3 +1,16 @@
+# [1.9.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.8.2...v1.9.0) (2021-05-10)
+
+
+### Features
+
+* add aio sass importer that combines node_modules and cache importers ([eff6a2d](https://github.com/telerik/kendo-theme-tasks/commit/eff6a2d4917e7aa0c464c40d7256a51c94ef3292))
+* add cached files sass importer ([d94d510](https://github.com/telerik/kendo-theme-tasks/commit/d94d510e2e1222caab9ed3f299e19d8bfcb61a66))
+* add node_modules sass importer ([dfa0a0d](https://github.com/telerik/kendo-theme-tasks/commit/dfa0a0dc136ea891477367a065d61b8f91c25425))
+* add transformer for themebuilder json files ([289c48a](https://github.com/telerik/kendo-theme-tasks/commit/289c48a6d918c79329102db153a3e6cc925bde34))
+* streamline cli ([08ccaac](https://github.com/telerik/kendo-theme-tasks/commit/08ccaac963edde06794602123b7604cd4458171a))
+* streamline jsonBuild functions ([4420d60](https://github.com/telerik/kendo-theme-tasks/commit/4420d608fa0dbbad93a344c6cb6a8a922b84fa09))
+* streamline sass build functions ([0085190](https://github.com/telerik/kendo-theme-tasks/commit/008519012bda983b29ea09ae15afce02172c5749))
+
 ## [1.8.2](https://github.com/telerik/kendo-theme-tasks/compare/v1.8.1...v1.8.2) (2021-05-03)
 
 
