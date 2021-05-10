@@ -1,19 +1,33 @@
 const argv = require('yargs-parser');
-const { commandsList } = require('./commandsList');
-const { yargsOpts } = require('./yargsParserConfig');
+const commands = require('./commands');
 
-function cli(args) {
-    const commandName = args[2];
+const yargsOpts = {
+    alias: {
+        'f': [ 'file' ],
+        'o': [ 'output.path' ],
+        'output-path': [ 'output.path' ],
+        'output-filename': [ 'output.filename' ]
+    },
+    default: {
+        'file': 'kendoTheme.config.js',
+        'output-path': 'dist'
+    },
+    configuration: {
+        'strip-dashed': true
+    }
+};
 
-    if (commandName in commandsList) {
-        const command = commandsList[commandName];
-        const opts = argv(process.argv.slice(2), yargsOpts);
+function cli() {
 
+    const commandName = process.argv[2];
+    const command = commands[commandName];
+    const opts = argv( process.argv.slice(2), yargsOpts );
+
+    if (typeof command === 'function') {
         command(opts);
     } else {
-        throw 'Unknown command';
+        throw TypeError( `Unknown command: ${commandName}` );
     }
 }
 
-module.exports.cli = cli;
-module.exports.commands = commandsList;
+module.exports = cli;

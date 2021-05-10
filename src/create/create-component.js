@@ -2,15 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const nunjucks = require('nunjucks');
 
-function createComponentFiles(args) {
+function createComponent(args) {
     const componentName = args.name;
-    const templatesDir = path.resolve(__dirname, 'templates/create-component-files');
+    const templatesDir = path.resolve(__dirname, 'templates/create-component');
     const themes = [ 'default', 'bootstrap', 'material', 'classic' ];
     const files = fs.readdirSync(templatesDir);
 
     nunjucks.configure(templatesDir, { autoescape: false });
 
-    if (!componentName || typeof(componentName) !== 'string') {
+    if (typeof componentName !== 'string') {
         throw 'Pass the component name as a parameter!';
     }
 
@@ -31,4 +31,4 @@ function createComponentFiles(args) {
     });
 }
 
-module.exports.createComponentFiles = createComponentFiles;
+module.exports.createComponent = createComponent;
