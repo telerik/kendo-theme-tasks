@@ -1,12 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const glob = require('glob');
 const merge = require('lodash.merge');
 const colors = require('ansi-colors');
-const postcss = require('postcss');
 
-const sassImporterFactory = require('./sass-importer');
 const {
     logger,
     ensureDirSync,
@@ -23,24 +20,24 @@ const defaults = {
         path: './dist'
     },
 
-    dryRun: false,
-
-    // Determines which compiler of Sass to use. Prefer `node-sass`
-    compiler: require('node-sass'),
-
     // Options for Sass
     sassOptions: {
-        importer: sassImporterFactory( { cache: true } ),
+        importer: [],
         functions: [],
         indentType: 'space',
         indentWidth: 4,
         linefeed: 'lf',
         outputStyle: 'expanded',
         precision: 10,
+        sourceMaps: false
     },
 
-    // postcss plugins
-    postcssPlugins: []
+    // Options for postcss
+    postcssOptions: {
+        plugins: []
+    },
+
+    logLevel: 1
 };
 
 function logFile( file ) {
@@ -49,21 +46,46 @@ function logFile( file ) {
 
 function sassCompile( options ) {
 
-    const { file, compiler, sassOptions } = options;
-    let messages;
+    const opts = merge( {}, defaults, options );
+
+    const {
+        file,
+        data,
+        sassOptions,
+        postcssOptions,
+        logLevel
+    } = opts;
+
+    if ( data === undefined && file === undefined ) {
+        throw new TypeError( 'Provide either options.data or options.file' );
+    }
+
+    let rawResult;
+    let result = '';
+    const sassCompiler = sassOptions.implementation;
+    delete sassOptions.implementation;
+
+    /** @type {import('postcss').default} */
+    const postcss = postcssOptions.implementation;
+    /** @type {import('postcss').AcceptedPlugin[]} */
+    const postcssPlugins = postcssOptions.plugins;
+
+    if (logLevel !== 0) {
+        logger.info( `Compiling ${logFile( file || 'data' )}` );
+    }
 
     try {
-        return compiler.renderSync({ file, ...sassOptions }).css.toString('utf-8');
+        rawResult = sassCompiler.renderSync({ file, data, ...sassOptions });
+        result = rawResult.css.toString('utf-8');
+
+        if ( typeof postcss === 'function' && postcssPlugins.length > 0 ) {
+            result = postcss(postcssPlugins).process( result ).css;
+        }
+
+        return result;
+
     } catch (error) {
-        messages = error.formatted.split( '\n' );
-        messages.shift();
-        messages[0] += `:${error.line}:${error.column}`;
-        messages.unshift( error.message );
-
-        messages.forEach( message => {
-            logger.error( message );
-        });
-
+        logger.error(`Error in ${error.file}:${error.line}:${error.column}`);
         throw new Error( error.message, error.file, error.line );
     }
 
@@ -72,57 +94,23 @@ function sassCompile( options ) {
 
 function sassBuild( options ) {
 
-    let files, importer, result, outFile;
-
     const opts = merge( {}, defaults, options );
     const {
-        cwd,
-
         file,
-        output,
-
-        dryRun,
-
-        compiler,
-        sassOptions,
-
-        postcssPlugins
+        output
     } = opts;
 
-    files = glob.sync( path.resolve( cwd, file ) );
+    let outFile = path.resolve(
+        output.path,
+        replacePathVariables( output.filename, file )
+    );
 
-    if ( files.length === 0 ) {
-        logger.warn( 'Provide a Sass file to render' );
-        return;
-    }
+    logger.info( `Compiling ${logFile( file )} to ${logFile( outFile )}` );
 
-    output.path = path.resolve( cwd, output.path );
+    let result = sassCompile({ ...opts, logLevel: 0 });
 
-    importer = sassOptions.importer;
-    importer.setCwd( cwd );
-
-    files.forEach(file => {
-        importer.clearImported();
-
-        outFile = path.resolve(
-            output.path,
-            replacePathVariables( output.filename, file )
-        );
-
-        logger.info( `Compiling ${logFile( file )} to ${logFile( outFile )}` );
-
-        result = sassCompile({ file, compiler, sassOptions });
-
-        if ( postcssPlugins.length > 0 ) {
-            result = postcss(postcssPlugins).process( result ).css;
-        }
-
-        if ( dryRun === false ) {
-            ensureDirSync( path.dirname( outFile ) );
-            fs.writeFileSync( outFile, result );
-        }
-
-    });
+    ensureDirSync( path.dirname( outFile ) );
+    fs.writeFileSync( outFile, result );
 }
 
 module.exports.sassBuild = sassBuild;
