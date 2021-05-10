@@ -1,75 +1,76 @@
 const fs = require('fs');
 const path = require('path');
 const merge = require('lodash.merge');
-const { sassBuild } = require('./sass-build');
-const { replacePathVariables } = require('../utils');
+const { sassBuild, sassCompile } = require('./sass-build');
 
-const kendoSchemasPath = '@progress/kendo-theme-tasks/lib/schemas/';
-const defaults = {
-    output: {
-        // The filename as relative path inside the output.path directory.
-        filename: '[name].css',
-        // The output directory.
-        path: './dist'
+const overrides = {
+    sassOptions: {
+        sourceMap: false
     }
 };
 
-function verifySchema( schema ) {
-    if ( !schema || !schema.startsWith(kendoSchemasPath) ) {
-        throw 'Invalid Schema!';
-    }
+function identityTransformer( data ) {
+    return data;
 }
 
-function themebuilder( options, data ) {
-    const opts = merge( {}, defaults, options );
-    const fileArr = [];
-    const outFile = data.name ? data.name : replacePathVariables( opts.output.filename, opts.file );
-    const cssOutFIle = path.basename(outFile, path.extname(outFile)) + '.css';
-    const scssOutFile = path.basename(outFile, path.extname(outFile)) + '.scss';
-    const scssOutput = path.resolve( opts.output.path, scssOutFile );
+function parseOptions( options, jsonValidator ) {
+    let jsonData = {};
 
-    data.themeBuilder.forEach( (e) => {
-        for ( const [ key, value ] of Object.entries(e.variables) ) {
-            fileArr.push(`$${key}: ${value.value};\n`);
-        }
-    });
+    const { data, file } = options;
 
-    fileArr.push('\n');
-
-    if ( data.components.length === 0 ) {
-        fileArr.push(`@import "~${data.base}/scss/all.scss";\n`);
-    } else {
-        data.components.forEach( (e) => {
-            fileArr.push(`@import "~${data.base}/scss/${e}/_index.scss";\n`);
-        });
+    if ( data === undefined && file === undefined ) {
+        throw new TypeError( 'Provide either options.data or options.file' );
     }
 
-    fs.writeFileSync( scssOutput, fileArr.join('') );
+    if ( file && fs.existsSync( path.resolve( file ) ) ) {
+        jsonData = JSON.parse( fs.readFileSync( path.resolve( file ), 'utf-8' ) );
+    }
 
-    sassBuild({
+    if ( data ) {
+        jsonData = data;
+    }
+
+    if ( typeof jsonValidator === 'function' ) {
+        jsonValidator( jsonData );
+    }
+
+    return jsonData;
+}
+
+function jsonTransform( data, transformer ) {
+    if ( typeof transformer !== 'function' ) {
+        throw TypeError( 'Invalid arguments: transformer must be function!' );
+    }
+
+    return transformer( data );
+}
+
+function jsonCompile( options ) {
+    let transformer = options.transformer || identityTransformer;
+    let data = parseOptions( options );
+    let sassContent = jsonTransform( data, transformer );
+    const opts = merge( {}, options, overrides );
+
+    return sassCompile({
         ...opts,
-        file: scssOutput,
-        output: {
-            filename: cssOutFIle,
-            path: opts.output.path
-        }
+        transfomer: undefined,
+        data: sassContent
     });
 }
 
 function jsonBuild( options ) {
-    const jsonData = JSON.parse( fs.readFileSync( path.resolve(options.file) ) );
+    let transformer = options.transformer || identityTransformer;
+    let data = parseOptions( options );
+    let sassContent = jsonTransform( data, transformer );
+    const opts = merge( {}, options, overrides );
 
-    verifySchema(jsonData.$schema);
-
-    const currentSchema = jsonData.$schema.split(kendoSchemasPath)[1];
-
-    switch (currentSchema) {
-        case 'themebuilder-swatch.json':
-            themebuilder( options, jsonData );
-            break;
-        default:
-            throw 'Unsupported Schema!';
-    }
+    sassBuild({
+        ...opts,
+        transfomer: undefined,
+        data: sassContent
+    });
 }
 
 module.exports.jsonBuild = jsonBuild;
+module.exports.jsonCompile = jsonCompile;
+module.exports.jsonTransform = jsonTransform;
