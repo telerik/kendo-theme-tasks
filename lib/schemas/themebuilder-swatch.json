@@ -19,7 +19,12 @@
                 "@progress/kendo-theme-bootstrap",
                 "@progress/kendo-theme-material",
                 "@progress/kendo-theme-classic",
-                "@progress/kendo-theme-nouvelle"
+                "@progress/kendo-theme-nouvelle",
+                "@telerik/webui-theme-default",
+                "@telerik/webui-theme-bootstrap",
+                "@telerik/webui-theme-material",
+                "@telerik/webui-theme-glow",
+                "@telerik/webui-theme-silk"
             ]
         },
         "hidden": {
