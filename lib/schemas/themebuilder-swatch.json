@@ -12,7 +12,7 @@
             "type": "string"
         },
         "base": {
-            "description": "Base for the theme. Must be a valid kendo theme name.",
+            "description": "Base for the theme. Must be a valid kendo or webui theme name.",
             "type": "string",
             "enum": [
                 "@progress/kendo-theme-default",
@@ -25,6 +25,14 @@
                 "@telerik/webui-theme-material",
                 "@telerik/webui-theme-glow",
                 "@telerik/webui-theme-silk"
+            ]
+        },
+        "product": {
+            "description": "Product for which the theme is for. Either kendo or webui.",
+            "type": "string",
+            "enum": [
+                "kendo",
+                "webui"
             ]
         },
         "hidden": {
@@ -54,7 +62,7 @@
         }
     },
     "additionalProperties": false,
-    "required": [ "$schema", "name", "base", "themeBuilder" ],
+    "required": [ "$schema", "name", "base", "product", "themeBuilder" ],
 
     "$defs": {
 
