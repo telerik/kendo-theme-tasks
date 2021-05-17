@@ -1,3 +1,17 @@
+# [1.10.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.9.0...v1.10.0) (2021-05-17)
+
+
+### Bug Fixes
+
+* allow color modes to be specified with just names ([7da482c](https://github.com/telerik/kendo-theme-tasks/commit/7da482c6eb3ba74c455e1530bb09dd8df8f04889))
+* building from file blobs will result in error due to path resolution ([e3bc81f](https://github.com/telerik/kendo-theme-tasks/commit/e3bc81f72cc8ac7751c32163a1ed63ec2a1d419d))
+
+
+### Features
+
+* add product field in swatches definition ([76f1e6e](https://github.com/telerik/kendo-theme-tasks/commit/76f1e6eee0d04bb757326b91571d182df42c90c6))
+* add theme base for Telerik UI for WebForms ([87df9b1](https://github.com/telerik/kendo-theme-tasks/commit/87df9b119243a8ed1c2e214535a873a0646e23e3))
+
 # [1.9.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.8.2...v1.9.0) (2021-05-10)
 
 
