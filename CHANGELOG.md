@@ -1,3 +1,15 @@
+# [1.11.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.10.0...v1.11.0) (2021-06-18)
+
+
+### Bug Fixes
+
+* provide kendo defaults for convenience ([78d494c](https://github.com/telerik/kendo-theme-tasks/commit/78d494c514c00c9e992e408078848d1b03e537a1))
+
+
+### Features
+
+* extend swatches schema to allow either variables, groups or themeBuilder (legacy) ([1132cfd](https://github.com/telerik/kendo-theme-tasks/commit/1132cfddddd3f5dd1715c54bcd201d3cb204334c))
+
 # [1.10.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.9.0...v1.10.0) (2021-05-17)
 
 
