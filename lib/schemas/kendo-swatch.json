@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "kendo-cli://schemas/themebuilder-swatch.json",
-    "title": "Themebuilder Swatch Definition",
+    "$id": "kendo-cli://schemas/kendo-swatch.json",
+    "title": "Kendo Swatch Definition",
 
     "properties": {
         "$schema": {
@@ -59,10 +59,29 @@
             "items": {
                 "$ref": "#/$defs/group"
             }
+        },
+        "groups": {
+            "description": "List of variables to be customized in ThemeBuilder, organized in groups",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/group"
+            }
+        },
+        "variables": {
+            "$ref": "#/$defs/variable-list"
         }
     },
     "additionalProperties": false,
-    "required": [ "$schema", "name", "base", "product", "themeBuilder" ],
+    "required": [ "$schema", "name", "base", "product" ],
+    "oneOf": [
+        {
+            "oneOf": [
+                { "required": [ "variables" ] },
+                { "required": [ "groups" ] },
+                { "required": [ "themeBuilder" ] }
+            ]
+        }
+    ],
 
     "$defs": {
 
@@ -80,14 +99,7 @@
                     "type": "string"
                 },
                 "variables": {
-                    "description": "A list of variables. Each key refers to a sass variable name without the dollar sign",
-                    "type": "object",
-                    "patternProperties": {
-                        "^[a-zA-Z]": {
-                            "$ref": "#/$defs/variable"
-                        }
-                    },
-                    "additionalProperties": false
+                    "$ref": "#/$defs/variable-list"
                 },
                 "hidden": {
                     "description": "Hides the group from themebuilder customization interface. Default is false. Note: even a group is hidden, the variables will be processed!",
@@ -97,6 +109,17 @@
             },
             "additionalProperties": false,
             "required": [ "variables" ]
+        },
+
+        "variable-list": {
+            "description": "A list of variables. Each key refers to a sass variable name without the dollar sign",
+            "type": "object",
+            "patternProperties": {
+                "^[a-zA-Z]": {
+                    "$ref": "#/$defs/variable"
+                }
+            },
+            "additionalProperties": false
         },
 
         "variable": {
