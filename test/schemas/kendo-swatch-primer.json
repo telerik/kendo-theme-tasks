@@ -1,5 +1,5 @@
 {
-    "$schema": "../../lib/schemas/themebuilder-swatch.json",
+    "$schema": "../../lib/schemas/kendo-swatch.json",
     "name": "Default",
     "base": "@progress/kendo-theme-default",
     "hidden": true,
