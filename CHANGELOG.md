@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.11.0...v1.12.0) (2021-07-26)
+
+
+### Features
+
+* add getEnvArg utility function ([81318ed](https://github.com/telerik/kendo-theme-tasks/commit/81318edce472ff9989be922234608a02790a7480))
+
 # [1.11.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.10.0...v1.11.0) (2021-06-18)
 
 
