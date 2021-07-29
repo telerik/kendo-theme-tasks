@@ -17,7 +17,7 @@ const defaults = {
         // The filename as relative path inside the output.path directory.
         filename: '[name].css',
         // The output directory.
-        path: './dist'
+        path: path.resolve( process.cwd(), 'dist' )
     },
 
     // Options for Sass
