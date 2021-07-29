@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.12.0...v1.12.1) (2021-07-29)
+
+
+### Bug Fixes
+
+* update baka to v1.0.0 ([a39d0d4](https://github.com/telerik/kendo-theme-tasks/commit/a39d0d4c2b17196bbafe99888e27d5c52375f5e7))
+
 # [1.12.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.11.0...v1.12.0) (2021-07-26)
 
 
