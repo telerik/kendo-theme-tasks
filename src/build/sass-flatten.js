@@ -1,18 +1,19 @@
+const path = require('path');
 const baka = require( '@joneff/baka' );
 const merge = require( 'lodash.merge' );
 
 const defaults = {
-    nodeModules: './node_modules'
+    output: {
+        filename: '[name][ext]',
+        path: path.resolve( process.cwd(), 'dist' )
+    },
+    nodeModules: path.resolve( process.cwd(), 'node_modules' )
 };
 
-function sassFlatten( file, outFile, options ) {
+function sassFlatten( options ) {
     const opts = merge( {}, defaults, options );
 
-    baka.compile(
-        file,
-        outFile,
-        opts
-    );
+    baka.build( opts );
 }
 
 module.exports.sassFlatten = sassFlatten;

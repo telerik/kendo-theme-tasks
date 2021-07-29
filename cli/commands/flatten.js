@@ -1,20 +1,12 @@
 const path = require('path');
 const { sassFlatten } = require('../../src/build');
 
-function flatten(args = {}) {
-    const file = args.file ? args.file : 'kendoTheme.config.js';
-    const fileExt = path.extname(args.file);
-    const outFileName = args.outputFilename ? args.outputFilename : file;
-    const outFile = args.outputPath ? path.resolve(args.outputPath, outFileName) : path.resolve('./dest', outFileName);
-    const opts = args.opts ? args.opts : {};
+function flatten(options) {
+    const fileExt = path.extname( options.file );
 
     switch (fileExt) {
         case '.scss':
-            sassFlatten(file, outFile, opts);
-            break;
-        case '.js':
-            //TODO: create kendoTheme.config.js flatten
-            console.log('fatten kendoTheme.config.js'); // eslint-disable-line no-console
+            sassFlatten( options );
             break;
         default:
             throw 'Unsupported file type!';

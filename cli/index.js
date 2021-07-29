@@ -1,3 +1,4 @@
+const path = require('path');
 const argv = require('yargs-parser');
 const commands = require('./commands');
 
@@ -9,8 +10,7 @@ const yargsOpts = {
         'output-filename': [ 'output.filename' ]
     },
     default: {
-        'file': 'kendoTheme.config.js',
-        'output-path': 'dist'
+        'output-path': path.resolve( process.cwd(), 'dist' )
     },
     configuration: {
         'strip-dashed': true
