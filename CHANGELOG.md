@@ -1,3 +1,12 @@
+# [1.13.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.12.1...v1.13.0) (2021-09-20)
+
+
+### Features
+
+* add default browserlistrc ([4d533ab](https://github.com/telerik/kendo-theme-tasks/commit/4d533ab66757bed59ea2f4e5ee551a1010862a80))
+* add default postcss.config.js ([3ade051](https://github.com/telerik/kendo-theme-tasks/commit/3ade051940b83be06a0c2adee3e574c33c2fd7dc))
+* rename themeBuilderJsonTransformer to kendoTransformer ([21eef2d](https://github.com/telerik/kendo-theme-tasks/commit/21eef2d28bb1db61cb0b197800c58505ff100f3d))
+
 ## [1.12.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.12.0...v1.12.1) (2021-07-29)
 
 
