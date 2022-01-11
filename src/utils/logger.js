@@ -1,15 +1,15 @@
 const colors = require('ansi-colors');
-const gulplogger = require('gulplog');
+const log = require('fancy-log');
 
 const logger = {
     info: ( message, ...args ) => {
-        gulplogger.info( colors.gray( `Info: ${message}`), ...args );
+        log.info( colors.gray( `Info: ${message}`), ...args );
     },
     warn: ( message, ...args ) => {
-        gulplogger.warn( colors.gray(`Warn: ${colors.dim.yellow(message)}`), ...args );
+        log.warn( colors.gray(`Warn: ${colors.dim.yellow(message)}`), ...args );
     },
     error: ( message, ...args ) => {
-        gulplogger.error( `Error: ${colors.red( message )}`, ...args );
+        log.error( `Error: ${colors.red( message )}`, ...args );
     }
 };
 
