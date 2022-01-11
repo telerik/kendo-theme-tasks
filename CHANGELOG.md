@@ -1,3 +1,11 @@
+## [1.13.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.13.0...v1.13.1) (2022-01-11)
+
+
+### Bug Fixes
+
+* import core module in create component template ([76c6b85](https://github.com/telerik/kendo-theme-tasks/commit/76c6b85ed58daa643533b685f2415cc76c15dfad))
+* replace gulplog with fancy-log ([ce033b4](https://github.com/telerik/kendo-theme-tasks/commit/ce033b4b48b64222a1efebe70c146ab3ea14cf60))
+
 # [1.13.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.12.1...v1.13.0) (2021-09-20)
 
 
