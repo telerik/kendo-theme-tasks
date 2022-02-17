@@ -27,6 +27,11 @@
                 "@telerik/webui-theme-silk"
             ]
         },
+        "version": {
+            "description": "Version of the theme to compile against. Note: this is recommended version.",
+            "markdownDescription": "Version of the theme to compile against.\n\nNote: this is **recommended** version.",
+            "type": "string"
+        },
         "product": {
             "description": "Product for which the theme is for. Either kendo or webui.",
             "type": "string",
