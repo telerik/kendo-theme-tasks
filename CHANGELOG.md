@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.13.1...v1.14.0) (2022-02-18)
+
+
+### Features
+
+* add version field for swatches in checma definition ([79903c9](https://github.com/telerik/kendo-theme-tasks/commit/79903c9a27a235160ce4f028a38e5d6e703ead8f))
+
 ## [1.13.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.13.0...v1.13.1) (2022-01-11)
 
 
