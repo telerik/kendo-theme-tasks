@@ -14,13 +14,16 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/telerik/kendo-theme-tasks.git"
-  },
+  }, 
   "publishConfig": {
     "access": "public"
   },
   "peerDependencies": {
     "node-sass": "^5.0.0",
-    "sass": "^1.26.5"
+    "sass": "^1.26.5",
+    "postcss": "^8.4.6",
+    "postcss-calc": "^8.2.4",
+    "autoprefixer": "^10.4.2"
   },
   "dependencies": {
     "@joneff/baka": "^1.0.1",
