@@ -1,3 +1,15 @@
+# [1.15.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.14.0...v1.15.0) (2022-03-24)
+
+
+### Bug Fixes
+
+* **kendo-transformer:** include base typography and utils ([913aa25](https://github.com/telerik/kendo-theme-tasks/commit/913aa252a19e2f3b38aaf616ca6463919bf41457))
+
+
+### Features
+
+* **build:** add kendo function wrappers for sass and json build ([9c58df8](https://github.com/telerik/kendo-theme-tasks/commit/9c58df8e0451c47d15977d5f010779f724189cbd))
+
 # [1.14.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.13.1...v1.14.0) (2022-02-18)
 
 
