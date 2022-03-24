@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.15.0...v1.15.1) (2022-03-24)
+
+
+### Bug Fixes
+
+* update sass compilers to latest ([6f05770](https://github.com/telerik/kendo-theme-tasks/commit/6f05770908c8605424a2e207d16bdbd17e0ea54b))
+
 # [1.15.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.14.0...v1.15.0) (2022-03-24)
 
 
