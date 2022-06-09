@@ -1,3 +1,10 @@
+## [1.15.2](https://github.com/telerik/kendo-theme-tasks/compare/v1.15.1...v1.15.2) (2022-06-09)
+
+
+### Bug Fixes
+
+* pass either string of file option for sass-embedded ([18ce235](https://github.com/telerik/kendo-theme-tasks/commit/18ce235a754bb201b50e01c035cefe92b338ffdf))
+
 ## [1.15.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.15.0...v1.15.1) (2022-03-24)
 
 
