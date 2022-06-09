@@ -75,7 +75,9 @@ function sassCompile( options ) {
     }
 
     try {
-        rawResult = sassCompiler.renderSync({ file, data, ...sassOptions });
+        rawResult = data !== undefined
+            ? sassCompiler.renderSync({ data, ...sassOptions })
+            : sassCompiler.renderSync({ file, ...sassOptions });
         result = rawResult.css.toString('utf-8');
 
         if ( typeof postcss === 'function' && postcssPlugins.length > 0 ) {
