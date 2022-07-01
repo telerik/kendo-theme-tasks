@@ -1,3 +1,10 @@
+## [1.15.3](https://github.com/telerik/kendo-theme-tasks/compare/v1.15.2...v1.15.3) (2022-07-01)
+
+
+### Bug Fixes
+
+* include dart template for create-component script ([c845279](https://github.com/telerik/kendo-theme-tasks/commit/c8452794565229fbfdcb1ff819d8ac7bff28798a))
+
 ## [1.15.2](https://github.com/telerik/kendo-theme-tasks/compare/v1.15.1...v1.15.2) (2022-06-09)
 
 
