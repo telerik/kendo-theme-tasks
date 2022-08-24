@@ -1,119 +1,29 @@
-const fs = require('fs');
 const path = require('path');
+const { sassBuild, sassCompile, sassCompileString } = require('sass-build');
+const { replacePathVariables } = require('../utils');
 
-const merge = require('lodash.merge');
-const colors = require('ansi-colors');
 
-const {
-    logger,
-    ensureDirSync,
-    replacePathVariables
-} = require('../utils');
+function wrappedSassCompile( options ) {
+    const { file, data, ...opts } = options;
 
-const defaults = {
-    cwd: process.cwd(),
-
-    output: {
-        // The filename as relative path inside the output.path directory.
-        filename: '[name].css',
-        // The output directory.
-        path: path.resolve( process.cwd(), 'dist' )
-    },
-
-    // Options for Sass
-    sassOptions: {
-        importer: [],
-        functions: [],
-        indentType: 'space',
-        indentWidth: 4,
-        linefeed: 'lf',
-        outputStyle: 'expanded',
-        precision: 10,
-        sourceMaps: false
-    },
-
-    // Options for postcss
-    postcssOptions: {
-        plugins: []
-    },
-
-    logLevel: 1
-};
-
-function logFile( file ) {
-    return colors.magentaBright( file.replace( `${process.cwd()}/`, '' ) );
-}
-
-function sassCompile( options ) {
-
-    const opts = merge( {}, defaults, options );
-
-    const {
-        file,
-        data,
-        sassOptions,
-        postcssOptions,
-        logLevel
-    } = opts;
-
-    if ( data === undefined && file === undefined ) {
-        throw new TypeError( 'Provide either options.data or options.file' );
+    if ( file === undefined ) {
+        return sassCompileString( data, opts );
     }
 
-    let rawResult;
-    let result = '';
-    const sassCompiler = sassOptions.implementation || require('node-sass');
-    delete sassOptions.implementation;
-
-    /** @type {import('postcss').default} */
-    const postcss = postcssOptions.implementation;
-    /** @type {import('postcss').AcceptedPlugin[]} */
-    const postcssPlugins = postcssOptions.plugins;
-
-    if (logLevel !== 0) {
-        logger.info( `Compiling ${logFile( file || 'data' )}` );
-    }
-
-    try {
-        rawResult = data !== undefined
-            ? sassCompiler.renderSync({ data, ...sassOptions })
-            : sassCompiler.renderSync({ file, ...sassOptions });
-        result = rawResult.css.toString('utf-8');
-
-        if ( typeof postcss === 'function' && postcssPlugins.length > 0 ) {
-            result = postcss(postcssPlugins).process( result ).css;
-        }
-
-        return result;
-
-    } catch (error) {
-        logger.error(`Error in ${error.file}:${error.line}:${error.column}`);
-        throw new Error( error.message, error.file, error.line );
-    }
-
+    return sassCompile( file, opts );
 }
 
 
-function sassBuild( options ) {
-
-    const opts = merge( {}, defaults, options );
-    const {
-        file,
-        output
-    } = opts;
+function wrappedSassBuild( options ) {
+    const { file, output, ...opts } = options;
 
     let outFile = path.resolve(
         output.path,
         replacePathVariables( output.filename, file )
     );
 
-    logger.info( `Compiling ${logFile( file )} to ${logFile( outFile )}` );
-
-    let result = sassCompile({ ...opts, logLevel: 0 });
-
-    ensureDirSync( path.dirname( outFile ) );
-    fs.writeFileSync( outFile, result );
+    sassBuild( file, outFile, opts );
 }
 
-module.exports.sassBuild = sassBuild;
-module.exports.sassCompile = sassCompile;
+module.exports.sassBuild = wrappedSassBuild;
+module.exports.sassCompile = wrappedSassCompile;
