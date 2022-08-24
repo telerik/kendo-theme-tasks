@@ -1,16 +1,5 @@
-const colors = require('ansi-colors');
-const log = require('fancy-log');
+const { Logger } = require('sass-build');
 
-const logger = {
-    info: ( message, ...args ) => {
-        log.info( colors.gray( `Info: ${message}`), ...args );
-    },
-    warn: ( message, ...args ) => {
-        log.warn( colors.gray(`Warn: ${colors.dim.yellow(message)}`), ...args );
-    },
-    error: ( message, ...args ) => {
-        log.error( `Error: ${colors.red( message )}`, ...args );
-    }
-};
+const logger = new Logger();
 
 module.exports.logger = logger;

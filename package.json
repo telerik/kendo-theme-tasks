@@ -11,6 +11,7 @@
     "utility"
   ],
   "main": "index.js",
+  "source": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/telerik/kendo-theme-tasks.git"
@@ -18,23 +19,20 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "node-sass": "^7.0.1",
-    "sass": "^1.49.8",
-    "postcss": "^8.4.6",
-    "postcss-calc": "^8.2.4",
-    "autoprefixer": "^10.4.2"
-  },
   "dependencies": {
     "@joneff/baka": "^1.0.1",
     "@progress/dss": "^1.0.1",
-    "ansi-colors": "^4.1.1",
-    "fancy-log": "^2.0.0",
+    "autoprefixer": "^10.4.8",
     "glob": "^7.1.6",
     "lodash.merge": "^4.6.2",
     "mime": "^2.5.0",
+    "node-sass": "^7.0.1",
     "nunjucks": "^3.2.3",
-    "yargs-parser": "^20.2.6"
+    "postcss": "^8.0.0",
+    "postcss-calc": "^8.2.4",
+    "sass": "^1.50.0",
+    "sass-build": "^1.0.0",
+    "sass-embedded": "^1.50.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -46,10 +44,34 @@
     "eslint": "^7.17.0",
     "husky": "^4.3.8",
     "mocha": "^8.2.1",
-    "node-sass": "^7.0.1",
-    "postcss": "^8.0.0",
-    "sass": "^1.49.8",
     "semantic-release": "^17.3.6"
+  },
+  "peerDependencies": {
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.0.0",
+    "postcss-calc": "^8.2.4",
+    "sass": "^1.50.0",
+    "sass-embedded": "^1.50.0"
+  },
+  "peerDependenciesMeta": {
+    "autoprefixer": {
+      "optional": true
+    },
+    "node-sass": {
+      "optional": true
+    },
+    "postcss": {
+      "optional": true
+    },
+    "postcss-calc": {
+      "optional": true
+    },
+    "sass": {
+      "optional": true
+    },
+    "sass-embedded": {
+      "optional": true
+    }
   },
   "scripts": {
     "eslint": "eslint \"**/*.js\"",

@@ -53,7 +53,6 @@ function jsonCompile( options ) {
 
     return sassCompile({
         ...opts,
-        transfomer: undefined,
         data: sassContent
     });
 }
@@ -66,7 +65,6 @@ function jsonBuild( options ) {
 
     sassBuild({
         ...opts,
-        transfomer: undefined,
         data: sassContent
     });
 }

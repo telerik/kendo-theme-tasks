@@ -1,3 +1,25 @@
-const commands = require('./cli/commands');
+const {
+    sassBuild,
+    sassCompile,
+    sassFlatten,
+    jsonBuild,
+    jsonCompile,
+    jsonTransform,
+    kendoSassBuild,
+    kendoSassCompile,
+    kendoJsonBuild,
+    kendoJsonCompile
+} = require('./src/build');
 
-module.exports = { ...commands };
+module.exports = {
+    sassBuild,
+    sassCompile,
+    sassFlatten,
+    jsonBuild,
+    jsonCompile,
+    jsonTransform,
+    kendoSassBuild,
+    kendoSassCompile,
+    kendoJsonBuild,
+    kendoJsonCompile
+};

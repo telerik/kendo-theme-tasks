@@ -6,30 +6,21 @@ const { kendoTransformer } = require('../../lib/jsonTransformers/kendo-transform
 const merge = require('lodash.merge');
 
 function kendoSassCompile( options ) {
-    const defaults = getDefaults({
-        cache: options.cache,
-        nodeModules: options.nodeModules
-    });
+    const defaults = getDefaults();
     const buildOptions = merge( {}, defaults, options );
 
     return sassCompile( buildOptions );
 }
 
 function kendoSassBuild( options ) {
-    const defaults = getDefaults({
-        cache: options.cache,
-        nodeModules: options.nodeModules
-    });
+    const defaults = getDefaults();
     const buildOptions = merge( {}, defaults, options );
 
     sassBuild( buildOptions );
 }
 
 function kendoJsonCompile( options ) {
-    const defaults = getDefaults({
-        cache: options.cache,
-        nodeModules: options.nodeModules
-    });
+    const defaults = getDefaults();
     const buildOptions = merge( {}, defaults, options );
 
     buildOptions.transformer = options.transformer || kendoTransformer;
@@ -38,10 +29,7 @@ function kendoJsonCompile( options ) {
 }
 
 function kendoJsonBuild( options ) {
-    const defaults = getDefaults({
-        cache: options.cache,
-        nodeModules: options.nodeModules
-    });
+    const defaults = getDefaults();
     const buildOptions = merge( {}, defaults, options );
 
     buildOptions.transformer = options.transformer || kendoTransformer;
