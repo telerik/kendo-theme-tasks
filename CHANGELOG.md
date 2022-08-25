@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.15.3...v1.16.0) (2022-08-25)
+
+
+### Features
+
+* switch to sass-build for build / compile ([bab6a52](https://github.com/telerik/kendo-theme-tasks/commit/bab6a527834d8c88c602f7994bf66c88c3c5e624))
+
 ## [1.15.3](https://github.com/telerik/kendo-theme-tasks/compare/v1.15.2...v1.15.3) (2022-07-01)
 
 
