@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.16.0...v1.17.0) (2022-09-09)
+
+
+### Features
+
+* add utility methods for theme-chooser files ([77d721c](https://github.com/telerik/kendo-theme-tasks/commit/77d721cb66806a36a7eefe122eef9e80d8ddd956))
+
 # [1.16.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.15.3...v1.16.0) (2022-08-25)
 
 
