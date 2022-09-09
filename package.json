@@ -20,10 +20,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@joneff/baka": "^1.0.1",
+    "@joneff/baka": "^2.0.0",
     "@progress/dss": "^1.0.1",
     "autoprefixer": "^10.4.8",
     "glob": "^7.1.6",
+    "lodash.camelcase": "^4.3.0",
     "lodash.merge": "^4.6.2",
     "mime": "^2.5.0",
     "node-sass": "^7.0.1",
@@ -31,7 +32,7 @@
     "postcss": "^8.0.0",
     "postcss-calc": "^8.2.4",
     "sass": "^1.50.0",
-    "sass-build": "^1.0.0",
+    "sass-build": "^1.1.0",
     "sass-embedded": "^1.50.0"
   },
   "devDependencies": {
