@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.17.0...v1.17.1) (2022-09-13)
+
+
+### Bug Fixes
+
+* pass file and outFile params to sass-flatten ([e45857a](https://github.com/telerik/kendo-theme-tasks/commit/e45857abffd873d1b4c2e95b83348da24824f5e8))
+
 # [1.17.0](https://github.com/telerik/kendo-theme-tasks/compare/v1.16.0...v1.17.0) (2022-09-09)
 
 
