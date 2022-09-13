@@ -1,6 +1,7 @@
 const path = require('path');
 const baka = require( '@joneff/baka' );
 const merge = require( 'lodash.merge' );
+const { replacePathVariables } = require('../utils');
 
 const defaults = {
     output: {
@@ -11,9 +12,14 @@ const defaults = {
 };
 
 function sassFlatten( options ) {
-    const opts = merge( {}, defaults, options );
+    const { file, output, ...opts } = merge( {}, defaults, options );
 
-    baka.build( opts );
+    const outFile = path.resolve(
+        output.path,
+        replacePathVariables( output.filename, file )
+    );
+
+    baka.build( file, outFile, opts );
 }
 
 module.exports.sassFlatten = sassFlatten;
