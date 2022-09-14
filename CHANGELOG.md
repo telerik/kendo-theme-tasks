@@ -1,3 +1,10 @@
+## [1.17.2](https://github.com/telerik/kendo-theme-tasks/compare/v1.17.1...v1.17.2) (2022-09-14)
+
+
+### Bug Fixes
+
+* correctly import kendo defaults ([683267a](https://github.com/telerik/kendo-theme-tasks/commit/683267ab282f44c9906e5ec5156fb5ecae305b03))
+
 ## [1.17.1](https://github.com/telerik/kendo-theme-tasks/compare/v1.17.0...v1.17.1) (2022-09-13)
 
 
