@@ -1,7 +1,7 @@
-const defaults = require('sass-build/lib/sass-build-recommended');
+const { defaults } = require('sass-build/lib/sass-build-recommended');
 
 function getDefaults() {
-    return defaults;
+    return defaults.build;
 }
 
 module.exports.getDefaults = getDefaults;
