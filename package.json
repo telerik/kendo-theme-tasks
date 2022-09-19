@@ -20,7 +20,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@joneff/baka": "^2.0.0",
+    "@joneff/baka": "^2.0.1",
     "@progress/dss": "^1.0.1",
     "autoprefixer": "^10.4.8",
     "glob": "^7.1.6",
