@@ -1,3 +1,10 @@
+## [1.17.4](https://github.com/telerik/kendo-theme-tasks/compare/v1.17.3...v1.17.4) (2022-11-28)
+
+
+### Bug Fixes
+
+* update dependencies ([1180728](https://github.com/telerik/kendo-theme-tasks/commit/11807285d463fb9f16c34865eaa0443bae70b7ad))
+
 ## [1.17.3](https://github.com/telerik/kendo-theme-tasks/compare/v1.17.2...v1.17.3) (2022-09-19)
 
 
