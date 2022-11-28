@@ -45,7 +45,7 @@
     "eslint": "^7.17.0",
     "husky": "^8.0.2",
     "mocha": "^10.1.0",
-    "semantic-release": "^17.3.6"
+    "semantic-release": "^19.0.3"
   },
   "peerDependencies": {
     "autoprefixer": "^10.4.8",
