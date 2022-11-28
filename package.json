@@ -20,39 +20,41 @@
     "access": "public"
   },
   "dependencies": {
-    "@joneff/baka": "^2.0.1",
+    "@joneff/baka": "^2.1.0",
     "@progress/dss": "^1.0.1",
-    "autoprefixer": "^10.4.8",
     "glob": "^7.1.6",
     "lodash.camelcase": "^4.3.0",
     "lodash.merge": "^4.6.2",
-    "mime": "^2.5.0",
-    "node-sass": "^7.0.1",
+    "mime": "^3.0.0",
     "nunjucks": "^3.2.3",
-    "postcss": "^8.0.0",
-    "postcss-calc": "^8.2.4",
-    "sass": "^1.50.0",
-    "sass-build": "^1.1.0",
-    "sass-embedded": "^1.50.0"
+    "sass-build": "^1.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "@commitlint/core": "^11.0.0",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@types/mime": "^2.0.3",
-    "eslint": "^7.17.0",
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@commitlint/core": "^17.3.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@types/mime": "^3.0.1",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.28.0",
     "husky": "^8.0.2",
     "mocha": "^10.1.0",
-    "semantic-release": "^17.3.6"
+    "node-sass": "^8.0.0",
+    "postcss-calc": "^8.2.4",
+    "postcss": "^8.4.19",
+    "sass-embedded": "^1.56.1",
+    "sass": "^1.56.1",
+    "semantic-release": "^19.0.5"
   },
   "peerDependencies": {
-    "autoprefixer": "^10.4.8",
+    "autoprefixer": "^10.0.0",
+    "glob": "^7.0.0",
+    "node-sass": "^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
+    "postcss-calc": "^8.0.0",
     "postcss": "^8.0.0",
-    "postcss-calc": "^8.2.4",
-    "sass": "^1.50.0",
-    "sass-embedded": "^1.50.0"
+    "sass-embedded": "^1.56.1",
+    "sass": "^1.56.1"
   },
   "peerDependenciesMeta": {
     "autoprefixer": {
@@ -77,7 +79,8 @@
   "scripts": {
     "eslint": "eslint \"**/*.js\"",
     "test": "mocha",
-    "mocha-dots": "mocha --reporter dot"
+    "mocha-dots": "mocha --reporter dot",
+    "update": "npx npm-check-updates --upgrade"
   },
   "husky": {
     "hooks": {
