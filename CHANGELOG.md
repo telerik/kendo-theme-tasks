@@ -1,3 +1,12 @@
+## [1.17.5](https://github.com/telerik/kendo-theme-tasks/compare/v1.17.4...v1.17.5) (2023-01-03)
+
+
+### Bug Fixes
+
+* include peer dependencies as dependecies for npm < 7 users ([bed0d1c](https://github.com/telerik/kendo-theme-tasks/commit/bed0d1c66f52cf3796b7ea609b1a4e5eb49b4917))
+* pass filename in default build options ([fb128db](https://github.com/telerik/kendo-theme-tasks/commit/fb128db8cc728fae3c26747023e962cbdecbc11b))
+* update dependencies to provision for node 14 and npm 6 ([f8d191e](https://github.com/telerik/kendo-theme-tasks/commit/f8d191ef023b62bcbb2432ece2d29261f73353d4))
+
 ## [1.17.4](https://github.com/telerik/kendo-theme-tasks/compare/v1.17.3...v1.17.4) (2022-11-28)
 
 
