@@ -41,7 +41,6 @@ A Kendo theme can be compiled to CSS from SCSS source with predefined configurat
 
 ```js
     const { kendoSassBuild } = require('@progress/kendo-theme-tasks/src/build/kendo-build');
-    const nodeSass = require('node-sass');
 
     function buildStyles(cb) {
         kendoSassBuild({
@@ -50,8 +49,8 @@ A Kendo theme can be compiled to CSS from SCSS source with predefined configurat
                 path: './wwwroot/css'
             },
             sassOptions: {
-                implementation: nodeSass,
-                outputStyle: 'compressed'
+                compiler: 'node-sass',
+                minify: true
             }
         });
 
@@ -71,7 +70,6 @@ A Kendo theme or a custom theme swatch can be compiled to CSS from JSON schema w
 
 ```js
     const { kendoJsonBuild } = require('@progress/kendo-theme-tasks/src/build/kendo-build');
-    const nodeSass = require('node-sass');
 
     function buildStyles(cb) {
         kendoJsonBuild({
@@ -80,8 +78,8 @@ A Kendo theme or a custom theme swatch can be compiled to CSS from JSON schema w
                 path: 'dist/'
             },
             sassOptions: {
-                implementation: nodeSass,
-                outputStyle: 'expanded'
+                compiler: 'node-sass',
+                minify: true
             }
         });
 
