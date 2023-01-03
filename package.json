@@ -51,13 +51,7 @@
     "eslint": "eslint \"**/*.js\"",
     "test": "mocha",
     "mocha-dots": "mocha --reporter dot",
-    "update": "npx npm-check-updates --upgrade"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run eslint",
-      "pre-push": "npm run eslint && npm run mocha-dots",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
+    "update": "npx npm-check-updates --upgrade",
+    "prepare": "husky install"
   }
 }
