@@ -26,7 +26,7 @@ jobs:
           node-version: 14.x
 
       - name: Install
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Lint scripts
         run: npm run eslint

@@ -38,7 +38,7 @@ jobs:
           node-version: 14.x
 
       - name: Install
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Publish
         run: npx semantic-release
