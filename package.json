@@ -23,7 +23,6 @@
     "@joneff/baka": "^2.1.0",
     "@progress/dss": "^1.0.1",
     "autoprefixer": "^10.4.13",
-    "glob": "^7.0.0 || ^8.0.0",
     "lodash.camelcase": "^4.3.0",
     "lodash.merge": "^4.6.2",
     "mime": "^3.0.0",
