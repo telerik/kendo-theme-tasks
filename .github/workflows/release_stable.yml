@@ -9,17 +9,33 @@ on: [workflow_dispatch]
 jobs:
 
   release-stable:
-
     runs-on: ubuntu-latest
+    environment: upload
+
+    permissions:
+        id-token: write # Required by Akeyless
+        contents: read
+        packages: read
 
     steps:
+      - name: Import Secrets
+        id: import-secrets
+        uses: LanceMcCarthy/akeyless-action@v3
+        with:
+          access-id: ${{ secrets.GH_AKEYLESS_ACCESS_ID }}
+          static-secrets: |
+            {
+              "/WebComponents/prod/tokens/GH_TOKEN": "GH_TOKEN",
+              "/WebComponents/prod/tokens/PROGRESS_NPM_REGISTRY_TOKEN": "NPM_TOKEN"
+            }
+          export-secrets-to-environment: false
 
-      - name: Checkout branch
+      - name: Check out master
         uses: actions/checkout@v3
         with:
           ref: master
-          fetch-depth: '0'
-          token: ${{ secrets.GH_TOKEN }}
+          fetch-depth: 0 # Fetch all branches
+          token: ${{ steps.import-secrets.outputs.GH_TOKEN }}
 
       - name: Setup git
         run: |
@@ -43,11 +59,11 @@ jobs:
       - name: Publish
         run: npx semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.import-secrets.outputs.GH_TOKEN }}
+          NPM_TOKEN: ${{ steps.import-secrets.outputs.NPM_TOKEN }}
 
       - name: Update develop
         run: |
           git push origin master:develop --quiet > /dev/null 2>&1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.import-secrets.outputs.GH_TOKEN }}
