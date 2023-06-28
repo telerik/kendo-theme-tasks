@@ -1,3 +1,10 @@
+## [1.17.6](https://github.com/telerik/kendo-theme-tasks/compare/v1.17.5...v1.17.6) (2023-06-28)
+
+
+### Bug Fixes
+
+* update dependencies ([e666872](https://github.com/telerik/kendo-theme-tasks/commit/e6668721cc392819fba2491cc06e0a182c45dfbd))
+
 ## [1.17.5](https://github.com/telerik/kendo-theme-tasks/compare/v1.17.4...v1.17.5) (2023-01-03)
 
 
