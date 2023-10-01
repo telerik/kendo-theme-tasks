@@ -52,7 +52,7 @@
     "postcss-calc": "^9.0.1",
     "sass": "^1.63.4",
     "sass-embedded": "^1.62.0",
-    "semantic-release": "^21.0.1"
+    "semantic-release": "^22.0.5"
   },
   "scripts": {
     "eslint": "eslint \"**/*.js\"",
