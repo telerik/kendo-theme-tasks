@@ -24,7 +24,7 @@
     "@progress/dss": "^1.0.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.merge": "^4.6.2",
-    "mime": "^3.0.0",
+    "mime": "^4.0.0",
     "nunjucks": "^3.2.3",
     "sass-build": "^1.1.6"
   },
