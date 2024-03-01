@@ -37,22 +37,22 @@
     "sass-embedded": "^1.62.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.2.0",
-    "@commitlint/config-conventional": "^18.1.0",
-    "@commitlint/core": "^18.2.0",
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
+    "@commitlint/core": "^19.0.3",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "@types/mime": "^3.0.1",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.28.0",
-    "husky": "^8.0.2",
+    "husky": "^9.0.11",
     "mocha": "^10.1.0",
     "node-sass": "^9.0.0",
     "postcss": "^8.4.24",
     "postcss-calc": "^9.0.1",
     "sass": "^1.63.4",
     "sass-embedded": "^1.62.0",
-    "semantic-release": "^22.0.5"
+    "semantic-release": "^23.0.2"
   },
   "scripts": {
     "eslint": "eslint \"**/*.js\"",
