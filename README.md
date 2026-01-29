@@ -1,3 +1,6 @@
+> [!WARNING]
+> This package has been deprecated and will no longer receive updates.
+
 # Kendo UI Theme Tasks
 
 The Kendo UI `theme-tasks` package is a utility library for developing and building `@progress/kendo-theme-*` packages.
